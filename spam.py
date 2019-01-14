@@ -54,13 +54,11 @@ text_clf = Pipeline([('vect', CountVectorizer()),
 ('clf', MultinomialNB())])
 text_clf.fit(X_train, y_train)
 
-
 # coba prediksi data baru
 sms_baru = ['Mas Agus']
 print(sms_baru[0])
 pred = text_clf.predict(sms_baru)
 print("Hasil prediksi {}".format(pred))
-
 
 #hitung akurasi data test
 import numpy as np
