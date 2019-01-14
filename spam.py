@@ -42,3 +42,29 @@ print(Counter(y_train))
 print("Data testing:")
 print(len(X_test))
 print(Counter(y_test))
+
+#transform ke tfidf dan train dengan naive bayes
+from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.naive_bayes import MultinomialNB
+
+text_clf = Pipeline([('vect', CountVectorizer()),
+('tfidf', TfidfTransformer()),
+('clf', MultinomialNB())])
+text_clf.fit(X_train, y_train)
+
+
+# coba prediksi data baru
+sms_baru = ['Mas Agus']
+print(sms_baru[0])
+pred = text_clf.predict(sms_baru)
+print("Hasil prediksi {}".format(pred))
+
+
+#hitung akurasi data test
+import numpy as np
+pred = text_clf.predict(X_test)
+print(pred)
+akurasi = np.mean(pred==y_test)
+print("Akurasi: {}".format(akurasi))
