@@ -20,21 +20,13 @@ print("jumlah data:{}".format(len(data)))
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split( data, label, test_size=0.1)
 
-#train test split ??
- 
-## X_train = data
-## y_train = label
-## X_test = data baru yg akan ditesting
-## y_test = label data yg akan ditesting
-## predict ????
 print("Data training:")
-#train test split ??
  
 ## X_train = data
 ## y_train = label
 ## X_test = data baru yg akan ditesting
 ## y_test = label data yg akan ditesting
-## predict ????
+
 print("Data training:")
 print(len(X_train))
 print(Counter(y_train))
@@ -63,6 +55,6 @@ print("Hasil prediksi {}".format(pred))
 #hitung akurasi data test
 import numpy as np
 pred = text_clf.predict(X_test)
-print(pred)
+
 akurasi = np.mean(pred==y_test)
 print("Akurasi: {}".format(akurasi))
